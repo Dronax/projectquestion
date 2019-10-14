@@ -32,7 +32,7 @@
                         <textarea required name="body" id="body" class="form-control" placeholder="Есть что сказать?" rows="8">{{ old('body') }}</textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success">Опубликовать</button>
+                        <button type="submit" class="btn btn-success">Publish</button>
                     </div>
                     @if(count($errors))
                     <ul class="alert alert-danger">

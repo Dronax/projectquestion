@@ -33,7 +33,7 @@ class RepliesController extends Controller
             return $reply->load('owner');
         }
 
-        return back()->with('flash', 'Ваш ответ был добавлен!');
+        return back()->with('flash', 'Your reply was added!');
     }
 
     public function update(Reply $reply)

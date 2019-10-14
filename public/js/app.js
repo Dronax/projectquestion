@@ -1783,7 +1783,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.post(location.pathname + '/replies', { body: this.body }).then(function (response) {
         _this.body = '';
 
-        flash('Ваш ответ был добалвен!');
+        flash('Your reply was added!');
 
         _this.$emit('created', response.data);
       });

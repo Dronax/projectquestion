@@ -27,7 +27,7 @@
                 </div>
                 @empty
                 <p>
-                    Пока нет никаких результатов по вашему запросу!
+                    Empty list
                 </p>
             @endforelse
         </div>

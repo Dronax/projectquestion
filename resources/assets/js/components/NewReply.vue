@@ -34,7 +34,7 @@ export default {
           .then(response => {
             this.body = '';
 
-            flash('Ваш ответ был добалвен!');
+            flash('Your reply was added!');
 
             this.$emit('created', response.data);
           });
