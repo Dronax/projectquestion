@@ -36,6 +36,31 @@
             <replies
                 @added="repliesCount++"
                 @removed="repliesCount--"></replies>
+            <div class="replies-block" style="display: none">
+            @foreach($theard->replies as $reply)
+                <div class="card mb-4" id="{{ $reply->id }}">
+                        <div class="card-header">
+                          <div class="level">
+                            <h6 class="flex">
+                                <a href="/profiles/{{ $reply->owner->name }}">
+                                </a> answered <span>{{ $reply->created_at }}</span>
+                            </h6>
+                  
+                            {{-- <div v-if="signnedIn">
+                              <favorite :reply="data"></favorite>
+                            </div> --}}
+                          </div>
+                        </div>
+                    
+                        <div class="card-body">
+                     
+                              <div>{{ $reply->body }}</div>
+                          </div>
+                          
+                          
+                        </div>
+                @endforeach
+                    </div>
         </div>
 
         <div class="col-md-4">
