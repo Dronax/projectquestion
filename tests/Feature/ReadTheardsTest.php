@@ -19,15 +19,15 @@ class ReadTheardsTest extends TestCase
     /** @test */
     public function a_user_can_view_all_theard()
     {
-        $this->get('/theards')
-                ->assertSee($this->theard->title);
+        $this->get('/questions')
+            ->assertSee($this->theard->title);
     }
 
     /** @test */
     public function a_user_can_view_a_single_theard()
     {
         $this->get($this->theard->path())
-                ->assertSee($this->theard->title);
+            ->assertSee($this->theard->title);
     }
 
     /** @test */
@@ -38,7 +38,7 @@ class ReadTheardsTest extends TestCase
 
         $theardNotInChannel = create('App\Theard');
 
-        $this->get('/theards/' . $channel->slug)
+        $this->get('/questions/' . $channel->slug)
             ->assertSee($theardInChannel->title)
             ->assertDontSee($theardNotInChannel->title);
     }
@@ -51,7 +51,7 @@ class ReadTheardsTest extends TestCase
         $theardByJohn = create('App\Theard', ['user_id' => auth()->user()->id]);
         $theardNotByJohn = create('App\Theard');
 
-        $this->get('theards?by=JohnCrammer')
+        $this->get('questions?by=JohnCrammer')
             ->assertSee($theardByJohn->title)
             ->assertDontSee($theardNotByJohn->title);
     }
@@ -67,7 +67,7 @@ class ReadTheardsTest extends TestCase
 
         $theardWithNoRepliese = $this->theard;
 
-        $response = $this->getJson('theards?popular=1')->json();
+        $response = $this->getJson('questions?popular=1')->json();
 
         $this->assertEquals([3, 2, 0], array_column($response, 'replies_count'));
     }
@@ -79,7 +79,7 @@ class ReadTheardsTest extends TestCase
 
         create('App\Reply', ['theard_id' => $theard->id]);
 
-        $response = $this->getJson('theards?unanswered=1')->json();
+        $response = $this->getJson('questions?unanswered=1')->json();
 
         $this->assertCount(1, $response);
     }

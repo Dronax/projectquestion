@@ -31,7 +31,7 @@ class Theard extends Model
 
     public function path()
     {
-        return '/theards/' . $this->channel->slug . '/' . $this->id;
+        return '/questions/' . $this->channel->slug . '/' . $this->id;
     }
 
     public function replies()
@@ -61,8 +61,8 @@ class Theard extends Model
     public function notifySubscribers($reply)
     {
         $this->subscriptions
-        ->where('user_id', '!=', $reply->user_id)
-        ->each->notify($reply);
+            ->where('user_id', '!=', $reply->user_id)
+            ->each->notify($reply);
     }
 
     public function scopeFilter($query, $filters)

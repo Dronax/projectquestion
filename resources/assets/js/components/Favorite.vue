@@ -1,6 +1,6 @@
 <template>
   <button type="submit" :class="className" @click="toggle">
-    <span v-text="count"></span>
+    <span v-text="count"></span> <span> Liked</span>
   </button>
 </template>
 

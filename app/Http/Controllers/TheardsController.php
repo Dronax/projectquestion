@@ -118,7 +118,7 @@ class TheardsController extends Controller
             return response([], 204);
         }
 
-        return redirect('/theards');
+        return redirect('/questions');
     }
 
     protected function getTheards(Channel $channel, TheardFilters $filters)

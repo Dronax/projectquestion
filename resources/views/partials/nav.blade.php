@@ -11,29 +11,29 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/theards" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/questions" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Choice questions
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/theards">All questions</a>
-                            <a class="dropdown-item" href="/theards?popular=1">Popular questions</a>
-                            <a class="dropdown-item" href="/theards?unanswered=1">Unanswered questions</a>
+                            <a class="dropdown-item" href="/questions">All questions</a>
+                            <a class="dropdown-item" href="/questions?popular=1">Popular questions</a>
+                            <a class="dropdown-item" href="/questions?unanswered=1">Unanswered questions</a>
                             @auth
-                            <a class="dropdown-item" href="/theards?by={{ auth()->user()->name }}">My questions</a>
+                            <a class="dropdown-item" href="/questions?by={{ auth()->user()->name }}">My questions</a>
                             @endauth
                         </div>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Tags
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach($channels as $channel)
-                          <a class="dropdown-item" href="/theards/{{ $channel->slug }}">{{ $channel->name }}</a>
+                          <a class="dropdown-item" href="/questions/{{ $channel->slug }}">{{ $channel->name }}</a>
                         @endforeach
                         </div>
-                </li>
-                <li><a href="/theards/create" class="nav-link">Create question</a></li>
+                </li> --}}
+                <li><a href="/questions/create" class="nav-link">Create question</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

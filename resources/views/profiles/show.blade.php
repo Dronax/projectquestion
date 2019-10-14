@@ -19,7 +19,7 @@
                         @endif
                     @endforeach
             @empty
-                <p>Нет активности у этого пользователя.</p>
+                <p>No activity of this user.</p>
             @endforelse
 
             {{-- {{ $theards->links() }} --}}

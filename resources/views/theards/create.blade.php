@@ -8,7 +8,7 @@
                 <div class="card-header">Create a new Question</div>
 
                 <div class="card-body">
-                  <form action="/theards" method="post">
+                  <form action="/questions" method="post">
                     @csrf
 
                     <div class="form-group">

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-8">
             @forelse($theards as $theard)
                 <div class="card mb-4">
@@ -17,7 +17,7 @@
                                         @endif
                                     </a>
                                 </h4>
-                                <a href="#"><strong>{{ $theard->replies_count }} ответов</strong></a>
+                                <a href="#"><strong>{{ $theard->replies_count }} answers</strong></a>
                         </div>
                     </div>
 
@@ -30,6 +30,18 @@
                     Empty list
                 </p>
             @endforelse
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Tags
+                </div>
+                <div class="card-body">
+                    @foreach($channels as $channel)
+                        <a href="/questions/{{ $channel->slug }}" class="btn btn-sm btn-default">{{ $channel->name }}</a>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>

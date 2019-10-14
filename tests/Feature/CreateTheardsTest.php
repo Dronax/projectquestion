@@ -18,8 +18,8 @@ class CreateTheardsTest extends TestCase
         // $this->post('/theards')
         //     ->assertRedirect('/login');
 
-        $this->get('/theards/create')
-        ->assertRedirect('/login');
+        $this->get('/questions/create')
+            ->assertRedirect('/login');
     }
 
     /** @test */
@@ -29,12 +29,12 @@ class CreateTheardsTest extends TestCase
 
         $theard = make('App\Theard');
 
-        $resp = $this->post('/theards', $theard->toArray());
+        $resp = $this->post('/questions', $theard->toArray());
 
         $response = $this->get($resp->headers->get('Location'));
 
         $response->assertSee($theard->title)
-                 ->assertSee($theard->body);
+            ->assertSee($theard->body);
     }
 
     /** @test */
@@ -60,7 +60,7 @@ class CreateTheardsTest extends TestCase
             ->assertSessionHasErrors('channel_id');
 
         $this->publishTheard(['channel_id' => 999])
-        ->assertSessionHasErrors('channel_id');
+            ->assertSessionHasErrors('channel_id');
     }
 
     /** @test */
@@ -100,6 +100,6 @@ class CreateTheardsTest extends TestCase
 
         $theard = make('App\Theard', $overrides);
 
-        return $this->post('/theards', $theard->toArray());
+        return $this->post('/questions', $theard->toArray());
     }
 }

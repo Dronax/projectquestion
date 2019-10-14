@@ -16,18 +16,18 @@ Route::get('/', 'TheardsController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/theards', 'TheardsController@index');
-Route::get('/theards/create', 'TheardsController@create');
-Route::get('/theards/{channel}/{theard}', 'TheardsController@show');
-Route::delete('/theards/{channel}/{theard}', 'TheardsController@destroy');
-Route::post('/theards', 'TheardsController@store');
-Route::get('/theards/{channel}/{theard}/replies', 'RepliesController@index');
-Route::post('/theards/{channel}/{theard}/replies', 'RepliesController@store');
-Route::get('/theards/{channel}', 'TheardsController@index');
+Route::get('/questions', 'TheardsController@index');
+Route::get('/questions/create', 'TheardsController@create');
+Route::get('/questions/{channel}/{theard}', 'TheardsController@show');
+Route::delete('/questions/{channel}/{theard}', 'TheardsController@destroy');
+Route::post('/questions', 'TheardsController@store');
+Route::get('/questions/{channel}/{theard}/replies', 'RepliesController@index');
+Route::post('/questions/{channel}/{theard}/replies', 'RepliesController@store');
+Route::get('/questions/{channel}', 'TheardsController@index');
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
 Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
-Route::post('/theards/{channel}/{theard}/subscriptions', 'TheardSubscriptionController@store')->middleware('auth');
-Route::delete('/theards/{channel}/{theard}/subscriptions', 'TheardSubscriptionController@destroy')->middleware('auth');
+Route::post('/questions/{channel}/{theard}/subscriptions', 'TheardSubscriptionController@store')->middleware('auth');
+Route::delete('/questions/{channel}/{theard}/subscriptions', 'TheardSubscriptionController@destroy')->middleware('auth');
 
 Route::patch('/replies/{reply}', 'RepliesController@update');
 Route::delete('/replies/{reply}', 'RepliesController@destroy');

@@ -5,7 +5,7 @@
             <h6 class="flex">
                 <a href="{{ route('profile', $reply->owner->name) }}">
                     {{ $reply->owner->name }}
-                </a> ответил {{ $reply->created_at->diffForHumans() }}...
+                </a> answered {{ $reply->created_at->diffForHumans() }}...
             </h6>
             @auth
             <div>
@@ -21,8 +21,8 @@
                     <textarea class="form-control" v-model="body"></textarea>
                 </div>
 
-                <button class="btn btn-sm btn-success" @click="update">Обновить</button>
-                <button class="btn btn-sm btn-link" @click="editing = false">Отменить</button>
+                <button class="btn btn-sm btn-success" @click="update">Update</button>
+                <button class="btn btn-sm btn-link" @click="editing = false">Cancel</button>
               </div>
               <div v-else v-text="body"></div>
           </div>

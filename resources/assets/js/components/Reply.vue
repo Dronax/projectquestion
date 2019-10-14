@@ -5,7 +5,7 @@
           <h6 class="flex">
               <a :href="'/profiles/'+data.owner.name" 
               v-text="data.owner.name">
-              </a> ответил <span v-text="ago"></span>
+              </a> answered <span v-text="ago"></span>
           </h6>
 
           <div v-if="signnedIn">
@@ -20,10 +20,10 @@
                   <textarea class="form-control" v-model="body"></textarea>
               </div>
 
-              <button class="btn btn-sm btn-success" @click="update">Обновить</button>
-              <button class="btn btn-sm btn-link" @click="editing = false">Отменить</button>
+              <button class="btn btn-sm btn-success" @click="update">Update</button>
+              <button class="btn btn-sm btn-link" @click="editing = false">Cancel</button>
             </div>
-            <div v-else v-text="body"></div>
+            <div v-else v-text="body" v-linkified></div>
         </div>
         
         <div class="card-footer level" v-if="canUpdate">
@@ -38,6 +38,9 @@
 
 import Favorite from './Favorite.vue';
 import moment from 'moment';
+
+import linkify from 'vue-linkify'
+Vue.directive('linkified', linkify)
 
 export default {
 
