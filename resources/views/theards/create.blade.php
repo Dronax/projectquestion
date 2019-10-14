@@ -12,9 +12,9 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="channel_id">Выберите канал:</label>
+                        <label for="channel_id">Select a channel:</label>
                         <select class="form-control" name="channel_id" required id="channel_id">
-                          <option disabled selected>Выберите что-то..</option>
+                          <option disabled selected>Select please..</option>
                           @foreach($channels as $channel)
                             <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
                               {{ $channel->name }}
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea required name="body" id="body" class="form-control" placeholder="Есть что сказать?" rows="8">{{ old('body') }}</textarea>
+                        <textarea required name="body" id="body" class="form-control" placeholder="Type a question" rows="8">{{ old('body') }}</textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Publish</button>
