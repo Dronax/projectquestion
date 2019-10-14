@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+
+@section('meta-desc', $theard->body)
+@section('meta-keywords', $theard->channel->name)
+
 @section('content')
 <theard-view :initial-replies-count="{{ $theard->replies_count }}" inline-template>
 <div class="container">

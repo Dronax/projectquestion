@@ -32,6 +32,10 @@
                         <textarea required name="body" id="body" class="form-control" placeholder="Type a question" rows="8">{{ old('body') }}</textarea>
                     </div>
                     <div class="form-group">
+                        {!! NoCaptcha::renderJs('en') !!}
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-success">Publish</button>
                     </div>
                     @if(count($errors))

@@ -51,7 +51,8 @@ class TheardsController extends Controller
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'channel_id' => 'required|exists:channels,id'
+            'channel_id' => 'required|exists:channels,id',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         $theard = Theard::create([
