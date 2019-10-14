@@ -24,7 +24,7 @@ class TheardTest extends TestCase
     {
         $theard = create('App\Theard');
 
-        $this->assertEquals('/questions/' . $theard->channel->slug . '/' . $theard->id, $theard->path());
+        $this->assertEquals('/questions/' . $theard->slug, $theard->path());
     }
 
     /** @test */

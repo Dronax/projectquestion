@@ -34,6 +34,7 @@ $factory->define(App\Theard::class, function (Faker $faker) {
         },
         'title' => $faker->sentence,
         'body' => $faker->paragraph,
+        'slug' => str_slug($faker->sentence)
     ];
 });
 
@@ -58,12 +59,12 @@ $factory->define(App\Reply::class, function (Faker $faker) {
 
 $factory->define(DatabaseNotification::class, function (Faker $faker) {
     return [
-       'id' => Uuid::uuid4()->toString(),
-       'type' => 'App\Notifications\TheardWasUpdated',
-       'notifiable_id' => function () {
-           return auth()->id() ?: factory('App\User')->create()->id;
-       },
-       'notifiable_type' => 'App\User',
-       'data' => ['foo' => 'bar'],
+        'id' => Uuid::uuid4()->toString(),
+        'type' => 'App\Notifications\TheardWasUpdated',
+        'notifiable_id' => function () {
+            return auth()->id() ?: factory('App\User')->create()->id;
+        },
+        'notifiable_type' => 'App\User',
+        'data' => ['foo' => 'bar'],
     ];
 });

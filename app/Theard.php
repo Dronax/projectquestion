@@ -29,9 +29,14 @@ class Theard extends Model
         });
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function path()
     {
-        return '/questions/' . $this->channel->slug . '/' . $this->id;
+        return '/questions/' . $this->slug;
     }
 
     public function replies()

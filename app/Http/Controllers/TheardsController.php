@@ -49,7 +49,7 @@ class TheardsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:theards,title',
             'body' => 'required',
             'channel_id' => 'required|exists:channels,id',
             'g-recaptcha-response' => 'required|captcha'
@@ -59,7 +59,8 @@ class TheardsController extends Controller
             'user_id' => auth()->user()->id,
             'channel_id' => $request->channel_id,
             'title' => $request->title,
-            'body' => $request->body
+            'body' => $request->body,
+            'slug' => str_slug($request->title)
         ]);
 
         return redirect($theard->path())->with('flash', 'Your question was created!');
@@ -71,7 +72,7 @@ class TheardsController extends Controller
      * @param  \App\Theard  $theard
      * @return \Illuminate\Http\Response
      */
-    public function show($channelId, Theard $theard)
+    public function show(Theard $theard)
     {
         if (auth()->check()) {
             auth()->user()->read($theard);
@@ -109,7 +110,7 @@ class TheardsController extends Controller
      * @param  \App\Theard  $theard
      * @return \Illuminate\Http\Response
      */
-    public function destroy($channel, Theard $theard)
+    public function destroy(Theard $theard)
     {
         $this->authorize('update', $theard);
 

@@ -38,7 +38,7 @@ class ReadTheardsTest extends TestCase
 
         $theardNotInChannel = create('App\Theard');
 
-        $this->get('/questions/' . $channel->slug)
+        $this->get('/tagged/' . $channel->slug)
             ->assertSee($theardInChannel->title)
             ->assertDontSee($theardNotInChannel->title);
     }

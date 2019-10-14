@@ -13,12 +13,12 @@ class RepliesController extends Controller
         $this->middleware('auth', ['except' => 'index']);
     }
 
-    public function index($channelId, Theard $theard)
+    public function index(Theard $theard)
     {
         return $theard->replies()->paginate(15);
     }
 
-    public function store($channelId, Theard $theard)
+    public function store(Theard $theard)
     {
         $this->validate(request(), [
             'body' => 'required'

@@ -13,7 +13,7 @@ class ParticipateInForumTest extends TestCase
     public function unauth_users_may_not_add_replies()
     {
         $this->withExceptionHandling()
-            ->post('/questions/some-channel/1/replies', [])
+            ->post('/questions/some-question/replies', [])
             ->assertRedirect('/login');
     }
 

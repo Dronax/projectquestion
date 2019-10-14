@@ -6,12 +6,12 @@ use App\Theard;
 
 class TheardSubscriptionController extends Controller
 {
-    public function store($channelId, Theard $theard)
+    public function store(Theard $theard)
     {
         $theard->subscribe();
     }
 
-    public function destroy($channelId, Theard $theard)
+    public function destroy(Theard $theard)
     {
         $theard->unsubscribe();
     }

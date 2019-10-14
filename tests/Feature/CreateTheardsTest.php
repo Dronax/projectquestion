@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Activity;
+use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
 
 class CreateTheardsTest extends TestCase
 {
@@ -29,7 +30,17 @@ class CreateTheardsTest extends TestCase
 
         $theard = make('App\Theard');
 
-        $resp = $this->post('/questions', $theard->toArray());
+        NoCaptcha::shouldReceive('verifyResponse')
+            ->once()
+            ->andReturn(true);
+
+        $resp = $this->post('/questions', [
+            'g-recaptcha-response' => '1',
+            'user_id' => $theard->user_id,
+            'channel_id' => $theard->channel_id,
+            'title' => $theard->title,
+            'body' => $theard->body
+        ]);
 
         $response = $this->get($resp->headers->get('Location'));
 

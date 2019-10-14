@@ -20,6 +20,7 @@ class CreateTheardsTable extends Migration
             $table->unsignedInteger('replies_count')->default(0);
             $table->string('title');
             $table->text('body');
+            $table->string('slug');
             $table->timestamps();
         });
     }

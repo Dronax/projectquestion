@@ -38,7 +38,7 @@
                 </div>
                 <div class="card-body">
                     @foreach($channels as $channel)
-                        <a href="/questions/{{ $channel->slug }}" class="btn btn-sm btn-default">{{ $channel->name }}</a>
+                        <a href="/tagged/{{ $channel->slug }}" class="btn btn-sm btn-default">{{ $channel->name }}</a>
                     @endforeach
                 </div>
             </div>
