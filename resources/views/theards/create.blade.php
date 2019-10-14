@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create a new Theard</div>
+                <div class="card-header">Create a new Question</div>
 
                 <div class="card-body">
                   <form action="/theards" method="post">
