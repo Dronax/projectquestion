@@ -28,8 +28,8 @@
           </div>
           @can('update', $reply)
           <div class="card-footer level">
-            <button type="button" @click="editing = true" class="btn btn-dark btn-sm mr-2">Редактировать</button>
-            <button type="button" @click="destroy" class="btn btn-danger btn-sm mr-2">Удалить</button>
+            <button type="button" @click="editing = true" class="btn btn-dark btn-sm mr-2">Edit</button>
+            <button type="button" @click="destroy" class="btn btn-danger btn-sm mr-2">Delete</button>
           </div>
           @endcan
         </div>

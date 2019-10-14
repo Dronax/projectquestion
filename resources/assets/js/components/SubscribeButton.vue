@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" @click="subscribe">Подписаться</button>
+  <button :class="classes" @click="subscribe">Subscribe</button>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
 
   computed: {
     classes() {
-      return ['btn', this.activeHov ? 'btn-primary' : 'btn-default'];
+      return ['btn', this.activeHov ? 'btn-primary' : 'btn-success'];
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <li class="nav-item dropdown" v-show="notifications.length">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Уведомления
+      Notifications
     </a>
 
     <div v-for="notification in notifications" :key="notification.id" class="dropdown-menu" aria-labelledby="navbarDropdown">
